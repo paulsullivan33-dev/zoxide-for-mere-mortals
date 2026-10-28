@@ -1,0 +1,22 @@
+lab$ cd ~/camera/photos
+lab$ cd ~
+lab$ cd ~/phone/photos
+lab$ cd ~
+lab$ cd ~/camera/photos
+lab$ cd ~
+lab$ cd ~/camera/photos
+lab$ cd ~
+lab$ cd ~/phone/photos
+lab$ cd ~
+lab$ cd ~/camera/photos
+lab$ cd ~
+lab$ cd ~/camera/photos
+lab$ cd ~
+lab$ cd ~/camera/photos
+lab$ cd ~
+lab$ zoxide query --list --score photos
+  24.0 /home/hatch/workspace/build-check/zoxide-scratch/home/camera/photos
+   8.0 /home/hatch/workspace/build-check/zoxide-scratch/home/phone/photos
+lab$ z photos
+lab$ pwd
+/home/hatch/workspace/build-check/zoxide-scratch/home/camera/photos

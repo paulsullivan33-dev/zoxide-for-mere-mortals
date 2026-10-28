@@ -1,0 +1,59 @@
+zoxide — the distilled commands
+====================================================================
+Placeholders: <kw> is one or more keywords; <folder> is a path.
+
+INSTALL AND SETUP (chapters 3)
+--------------------------------------------------------------------
+  zoxide --version
+  # then, at the END of ~/.bashrc:
+  eval "$(zoxide init bash)"
+  type z                              # should say: a function
+
+FIRST JUMPS (chapters 4-5)
+--------------------------------------------------------------------
+  cd ~/projects/website               # ordinary cd teaches it
+  z web                               # jump by a fragment
+  z doc inv                           # keywords, in path order
+  z WEB                               # capitals make no difference
+  z -                                 # back to the previous folder
+  z                                   # home, like plain cd
+  z ~/garden                          # a real path is used as-is
+
+ASKING THE DATABASE (chapter 7)
+--------------------------------------------------------------------
+  zoxide query <kw>                   # print the best match
+  zoxide query --list <kw>            # print every match
+  zoxide query --list --score <kw>    # matches, with their scores
+  zoxide query --all <kw>             # include folders since deleted
+  zoxide add <folder>                 # teach it by hand (+1 rank)
+  zoxide add <folder> --score 5       # teach it by hand (+5)
+  zoxide remove <folder>              # forget an entry entirely
+  zoxide edit                         # interactive editor (needs fzf)
+
+THE PICKER (chapter 8)
+--------------------------------------------------------------------
+  zi <kw>                             # choose from the list in fzf
+
+SETTINGS (chapter 9)
+--------------------------------------------------------------------
+  _ZO_DATA_DIR=~/.local/share/zoxide  # default database home
+  _ZO_EXCLUDE_DIRS=<glob>:<glob>      # never record these
+  _ZO_ECHO=1                          # set BEFORE the init line:
+                                      # each jump prints its landing
+  zoxide init bash --cmd cd           # make cd itself the jumper
+  zoxide init bash --hook prompt      # count prompts, not arrivals
+  zoxide init bash --no-cmd           # hook only, no z / zi
+
+HOUSEKEEPING (chapter 11)
+--------------------------------------------------------------------
+  _ZO_MAXAGE=10000                    # the default total-rank budget
+  zoxide import z                     # import z's ~/.z memory
+  zoxide import autojump              # ... and the other ancestors
+  cp ~/.local/share/zoxide/db.zo ...  # carrying the diary: copy
+                                      # the one file, before the new
+                                      # machine builds its own
+
+IN A SCRIPT (chapter 10)
+--------------------------------------------------------------------
+  cd "$(zoxide query <kw>)" || exit 1  # z is interactive-only;
+                                      # query is the scriptable form

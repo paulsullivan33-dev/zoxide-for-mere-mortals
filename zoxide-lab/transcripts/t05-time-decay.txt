@@ -1,0 +1,17 @@
+$ cat ~/.z
+/home/hatch/workspace/build-check/zoxide-scratch/home/projects/website|10|1793185696
+/home/hatch/workspace/build-check/zoxide-scratch/home/projects/api|10|1793169496
+/home/hatch/workspace/build-check/zoxide-scratch/home/documents/invoices|10|1792928296
+/home/hatch/workspace/build-check/zoxide-scratch/home/documents/letters|10|1790595496
+
+$ _ZO_DATA_DIR=<scratch>/data-decay zoxide import z
+(imported into a fresh, empty data directory)
+
+$ zoxide query --score website
+  40.0 /home/hatch/workspace/build-check/zoxide-scratch/home/projects/website
+$ zoxide query --score api
+  20.0 /home/hatch/workspace/build-check/zoxide-scratch/home/projects/api
+$ zoxide query --score invoices
+   5.0 /home/hatch/workspace/build-check/zoxide-scratch/home/documents/invoices
+$ zoxide query --score letters
+   2.5 /home/hatch/workspace/build-check/zoxide-scratch/home/documents/letters

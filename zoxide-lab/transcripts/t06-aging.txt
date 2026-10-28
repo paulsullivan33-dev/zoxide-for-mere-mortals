@@ -1,0 +1,29 @@
+$ export _ZO_MAXAGE=10   (with a fresh, empty data directory)
+$ zoxide add ~/garden --score 8
+$ zoxide add ~/workshop --score 5
+
+# total rank is now 13, over the budget of 10 — aging scales every rank by 0.9 x 10/13:
+$ zoxide query --all --score garden
+  22.2 /home/hatch/workspace/build-check/zoxide-scratch/home/garden
+$ zoxide query --all --score workshop
+  13.8 /home/hatch/workspace/build-check/zoxide-scratch/home/workshop
+
+$ zoxide add ~/documents/letters --score 4
+# the total settles at rank 9.0, which is 0.9 x the budget:
+$ zoxide query --all --score garden
+  15.3 /home/hatch/workspace/build-check/zoxide-scratch/home/garden
+$ zoxide query --all --score workshop
+   9.6 /home/hatch/workspace/build-check/zoxide-scratch/home/workshop
+$ zoxide query --all --score letters
+  11.1 /home/hatch/workspace/build-check/zoxide-scratch/home/documents/letters
+
+$ zoxide add ~/documents/invoices --score 1    (repeated 13 times)
+# each add re-triggers the scaling, and the weakest entries fall below rank 1 and are deleted:
+$ zoxide query --all --score garden
+   4.5 /home/hatch/workspace/build-check/zoxide-scratch/home/garden
+$ zoxide query --all --score workshop
+zoxide: no match found
+$ zoxide query --all --score letters
+zoxide: no match found
+$ zoxide query --all --score invoices
+  28.2 /home/hatch/workspace/build-check/zoxide-scratch/home/documents/invoices

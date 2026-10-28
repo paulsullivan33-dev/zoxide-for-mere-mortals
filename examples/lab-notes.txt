@@ -1,0 +1,64 @@
+The lab — one real install, one scratch home, nobody's real folders
+====================================================================
+
+The lab is zoxide as its project ships it, run on the build
+machine (a small Linux sandbox):
+
+  * zoxide 0.10.0, the official release binary
+    (zoxide-0.10.0-x86_64-unknown-linux-musl.tar.gz from the
+    project's GitHub releases), never installed system-wide —
+    it lived in a scratch folder on the PATH.
+  * bash 5.2.21, run interactively under a pseudo-terminal, so
+    the prompt hook, the jumps and every landing in the
+    transcripts are genuine shell behaviour, not simulation.
+    The scratch home's .bashrc carried one extra line:
+    eval "$(zoxide init bash)".
+  * fzf 0.74.5 (official release binary) behind chapter 8's
+    picker, and deliberately removed from the PATH once, to
+    capture its absence (t07).
+  * A practice tree of invented folders, built by
+    ../zoxide-lab/make-fixture.sh: projects/{website,
+    website-old, api}, documents/{invoices, letters},
+    camera/photos, phone/photos, garden, workshop, attic.
+    website-old was never visited on purpose: it is the
+    exhibit for "exists on disk, invisible to zoxide".
+
+What the lab ran, in zoxide-lab/transcripts/:
+
+  t00-version.txt          version print, and the init code
+                           whose reading specifies the hook,
+                           the jump function and the doctor
+  t01-first-visits.txt     a cd tour that teaches the hook;
+                           db.zo appears in the data directory
+  t02-first-jumps.txt      the matching rules, the unseen
+                           website-old, z -, bare z
+  t03-frecency-rivals.txt  six visits against two: 24.0 to 8.0,
+                           and the jump that follows the score
+  t04-query-add-remove.txt query in its forms, add --score,
+                           remove, and the deleted folder that
+                           only --all can still see
+  t05-time-decay.txt       four imported entries of equal rank
+                           and different ages: 40.0 / 20.0 / 5.0
+                           / 2.5 — the age multipliers measured
+  t06-aging.txt            _ZO_MAXAGE=10: scaling by
+                           0.9 x budget/total, then two entries
+                           aged out of existence
+  t07-interactive-zi.txt   fzf's refusal without fzf, then a
+                           real pick that overrules frecency
+  t08-settings.txt         the exclude list, the init-time
+                           echo, and cd itself replaced
+  t90-traps.txt            a shell with no init line, and a
+                           visit a script made that nobody
+                           learned from
+
+A note on method for t05: the four entries' ages were set by
+importing a data file in z's documented format
+(path|rank|time), which is zoxide import's ordinary job. No
+system clock was changed and no database file was edited by
+hand — in 0.10 the database is a binary format, and the lab
+treated that as a fact to work with, not around.
+
+The scratch home's path is long, and it appears in the
+transcripts exactly as the machine printed it. On a reader's
+machine the same commands show that machine's own paths; no
+score or rule in the guide depends on the difference.

@@ -1,0 +1,10 @@
+$ zoxide --version
+zoxide 0.10.0
+
+$ zoxide init bash | head -5
+# shellcheck shell=bash
+
+# =============================================================================
+#
+# Utility functions for zoxide.
+  [...]

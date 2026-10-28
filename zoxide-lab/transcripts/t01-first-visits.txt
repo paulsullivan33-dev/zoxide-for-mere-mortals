@@ -1,0 +1,18 @@
+lab$ pwd
+/home/hatch/workspace/build-check/zoxide-scratch/home
+lab$ cd projects
+lab$ cd website
+lab$ pwd
+/home/hatch/workspace/build-check/zoxide-scratch/home/projects/website
+lab$ cd ~/documents
+lab$ cd invoices
+lab$ pwd
+/home/hatch/workspace/build-check/zoxide-scratch/home/documents/invoices
+lab$ cd ~
+lab$ cd garden
+lab$ cd ~
+lab$ ls -la ~/.local/share/zoxide/
+total 4
+drwxrwx--- 1 root root  10 Oct 28 11:38 .
+drwxrwx--- 1 root root  12 Oct 28 11:38 ..
+-rw-rw---- 1 root root 459 Oct 28 11:38 db.zo

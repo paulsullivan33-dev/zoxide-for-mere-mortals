@@ -1,0 +1,26 @@
+$ zoxide query --score web
+  12.0 /home/hatch/workspace/build-check/zoxide-scratch/home/projects/website
+
+$ zoxide query zzz-no-such-place
+zoxide: no match found
+exit=1
+
+$ zoxide add ~/garden --score 5
+$ zoxide query --score garden
+  24.0 /home/hatch/workspace/build-check/zoxide-scratch/home/garden
+
+$ mkdir ~/ephemeral
+$ zoxide add ~/ephemeral
+$ rm -rf ~/ephemeral
+$ zoxide query ephemeral
+zoxide: no match found
+exit=1
+$ zoxide query --all ephemeral
+/home/hatch/workspace/build-check/zoxide-scratch/home/ephemeral
+
+$ zoxide remove ~/phone/photos
+$ zoxide query --list --score photos
+  28.0 /home/hatch/workspace/build-check/zoxide-scratch/home/camera/photos
+
+$ zoxide query --list --score proj
+   4.0 /home/hatch/workspace/build-check/zoxide-scratch/home/projects

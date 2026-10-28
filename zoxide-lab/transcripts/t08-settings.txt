@@ -1,0 +1,21 @@
+lab$ export _ZO_EXCLUDE_DIRS="$HOME/workshop"
+lab$ cd ~/workshop
+lab$ cd ~
+lab$ zoxide query --all workshop
+zoxide: no match found
+lab$ echo status=$?
+status=1
+lab$ unset _ZO_EXCLUDE_DIRS
+lab$ cd ~/workshop
+lab$ cd ~
+lab$ zoxide query --all workshop
+/home/hatch/workspace/build-check/zoxide-scratch/home/workshop
+lab$ export _ZO_ECHO=1
+lab$ eval "$(zoxide init bash)"
+lab$ z web
+/home/hatch/workspace/build-check/zoxide-scratch/home/projects/website
+lab$ eval "$(zoxide init bash --cmd cd)"
+lab$ cd api
+/home/hatch/workspace/build-check/zoxide-scratch/home/projects/api
+lab$ pwd
+/home/hatch/workspace/build-check/zoxide-scratch/home/projects/api

@@ -1,0 +1,35 @@
+lab$ z web
+lab$ pwd
+/home/hatch/workspace/build-check/zoxide-scratch/home/projects/website
+lab$ ls ~/projects
+api  website  website-old
+lab$ zoxide query --list web
+/home/hatch/workspace/build-check/zoxide-scratch/home/projects/website
+lab$ z proj api
+zoxide: no match found
+lab$ pwd
+/home/hatch/workspace/build-check/zoxide-scratch/home/projects/website
+lab$ cd ~/projects/api
+lab$ cd ~/documents/letters
+lab$ cd ~
+lab$ z proj api
+lab$ pwd
+/home/hatch/workspace/build-check/zoxide-scratch/home/projects/api
+lab$ z api proj
+zoxide: no match found
+lab$ z doc inv
+lab$ pwd
+/home/hatch/workspace/build-check/zoxide-scratch/home/documents/invoices
+lab$ z oice
+zoxide: you are already in the only match
+lab$ pwd
+/home/hatch/workspace/build-check/zoxide-scratch/home/documents/invoices
+lab$ z WEB
+lab$ pwd
+/home/hatch/workspace/build-check/zoxide-scratch/home/projects/website
+lab$ z -
+lab$ pwd
+/home/hatch/workspace/build-check/zoxide-scratch/home/documents/invoices
+lab$ z
+lab$ pwd
+/home/hatch/workspace/build-check/zoxide-scratch/home

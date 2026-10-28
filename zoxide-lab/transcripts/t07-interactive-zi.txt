@@ -1,0 +1,25 @@
+# zi needs fzf. Without it on the PATH, the interactive query refuses:
+
+$ zoxide query --interactive photos    (with fzf NOT on the PATH)
+zoxide: could not find fzf, is it installed?
+exit=1
+
+# With fzf installed, in the interactive shell. phone/photos had been
+# removed from the database in t04, so it is visited once more first,
+# which gives it rank 1 (score 4.0). camera/photos stands at 28.0.
+
+lab$ cd ~/phone/photos
+lab$ cd ~
+lab$ zi photo
+
+    (zi opens fzf as a full-screen list. What it showed, best first:)
+
+       28.0 /home/hatch/workspace/build-check/zoxide-scratch/home/camera/photos
+        4.0 /home/hatch/workspace/build-check/zoxide-scratch/home/phone/photos
+    > phone
+
+    (typing "phone" narrowed the list to that one entry;
+     pressing Enter chose it and closed the picker)
+
+lab$ pwd
+/home/hatch/workspace/build-check/zoxide-scratch/home/phone/photos

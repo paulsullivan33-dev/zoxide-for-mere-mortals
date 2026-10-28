@@ -1,0 +1,11 @@
+# a shell whose startup file has NO zoxide init line:
+lab$ z web
+bash: z: command not found
+lab$ command -v zoxide
+/home/hatch/workspace/build-check/zoxide-scratch/bin/zoxide
+
+# a non-interactive shell changes directory without the hook ever seeing it:
+$ bash -c "cd ~/attic"
+$ zoxide query --all attic
+zoxide: no match found
+exit=1
